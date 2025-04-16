@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Quản Lý Spa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .heading {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <div class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
+        <div class="flex items-center justify-center h-20 shadow-md">
+            <h1 class="heading text-xl font-bold text-gray-800">Spa Management</h1>
+        </div>
+        <nav class="mt-5">
+            <a class="flex items-center py-3 px-6 text-gray-700 bg-gray-200" href="dashboard.html">
+                <i class="fas fa-tachometer-alt mr-3"></i>
+                Dashboard
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="customers.html">
+                <i class="fas fa-users mr-3"></i>
+                Khách hàng
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="appointments.html">
+                <i class="fas fa-calendar-alt mr-3"></i>
+                Đặt lịch
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="services.html">
+                <i class="fas fa-spa mr-3"></i>
+                Dịch vụ
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="staff.html">
+                <i class="fas fa-user-tie mr-3"></i>
+                Nhân viên
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="reports.html">
+                <i class="fas fa-chart-bar mr-3"></i>
+                Báo cáo
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+                <p class="text-gray-600">Xin chào, Admin!</p>
+            </div>
+            <div class="flex items-center">
+                <span class="mr-2 text-gray-600">Admin</span>
+                <button class="bg-gray-200 p-2 rounded-full">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Khách hàng -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-blue-100 rounded-full">
+                        <i class="fas fa-users text-blue-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 text-sm">Khách hàng</h3>
+                        <p class="text-2xl font-bold">150</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lịch hẹn -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-green-100 rounded-full">
+                        <i class="fas fa-calendar-check text-green-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 text-sm">Lịch hẹn hôm nay</h3>
+                        <p class="text-2xl font-bold">12</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doanh thu -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-yellow-100 rounded-full">
+                        <i class="fas fa-money-bill-wave text-yellow-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 text-sm">Doanh thu tháng</h3>
+                        <p class="text-2xl font-bold">45.5M</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nhân viên -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-purple-100 rounded-full">
+                        <i class="fas fa-user-tie text-purple-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 text-sm">Nhân viên</h3>
+                        <p class="text-2xl font-bold">8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lịch hẹn hôm nay -->
+        <div class="bg-white rounded-lg shadow mb-8">
+            <div class="p-6 border-b">
+                <h2 class="text-lg font-semibold text-gray-800">Lịch hẹn hôm nay</h2>
+            </div>
+            <div class="p-6">
+                <table class="w-full">
+                    <thead>
+                        <tr class="text-left text-gray-500">
+                            <th class="pb-4">Thời gian</th>
+                            <th class="pb-4">Khách hàng</th>
+                            <th class="pb-4">Dịch vụ</th>
+                            <th class="pb-4">Nhân viên</th>
+                            <th class="pb-4">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t">
+                            <td class="py-4">09:00</td>
+                            <td class="py-4">Nguyễn Văn A</td>
+                            <td class="py-4">Massage body</td>
+                            <td class="py-4">Trần Thị B</td>
+                            <td class="py-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Đã xác nhận</span></td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-4">10:30</td>
+                            <td class="py-4">Lê Thị C</td>
+                            <td class="py-4">Chăm sóc da mặt</td>
+                            <td class="py-4">Phạm Thị D</td>
+                            <td class="py-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Đang chờ</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Thống kê dịch vụ -->
+        <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b">
+                <h2 class="text-lg font-semibold text-gray-800">Dịch vụ phổ biến</h2>
+            </div>
+            <div class="p-6">
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Massage body</span>
+                            <span class="text-gray-600">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Chăm sóc da mặt</span>
+                            <span class="text-gray-600">60%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Tắm trắng</span>
+                            <span class="text-gray-600">45%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
