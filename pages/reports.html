@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo & Thống Kê | Spa Management</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .heading {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <div class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
+        <div class="flex items-center justify-center h-20 shadow-md">
+            <h1 class="heading text-xl font-bold text-gray-800">Spa Management</h1>
+        </div>
+        <nav class="mt-5">
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="dashboard.html">
+                <i class="fas fa-tachometer-alt mr-3"></i>
+                Dashboard
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="customers.html">
+                <i class="fas fa-users mr-3"></i>
+                Khách hàng
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="appointments.html">
+                <i class="fas fa-calendar-alt mr-3"></i>
+                Đặt lịch
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="services.html">
+                <i class="fas fa-spa mr-3"></i>
+                Dịch vụ
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-600 hover:bg-gray-200" href="staff.html">
+                <i class="fas fa-user-tie mr-3"></i>
+                Nhân viên
+            </a>
+            <a class="flex items-center py-3 px-6 text-gray-700 bg-gray-200" href="reports.html">
+                <i class="fas fa-chart-bar mr-3"></i>
+                Báo cáo
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Báo Cáo & Thống Kê</h1>
+                <p class="text-gray-600">Xem báo cáo chi tiết về hoạt động kinh doanh</p>
+            </div>
+            <div class="flex space-x-4">
+                <select class="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="today">Hôm nay</option>
+                    <option value="week">Tuần này</option>
+                    <option value="month" selected>Tháng này</option>
+                    <option value="year">Năm nay</option>
+                </select>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                    <i class="fas fa-download mr-2"></i>
+                    Tải báo cáo
+                </button>
+            </div>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Doanh thu -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Tổng doanh thu</p>
+                        <h3 class="text-2xl font-bold">45.5M</h3>
+                        <p class="text-green-600 text-sm">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            12% so với tháng trước
+                        </p>
+                    </div>
+                    <div class="p-3 bg-blue-100 rounded-full">
+                        <i class="fas fa-money-bill-wave text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khách hàng -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Khách hàng mới</p>
+                        <h3 class="text-2xl font-bold">28</h3>
+                        <p class="text-green-600 text-sm">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            8% so với tháng trước
+                        </p>
+                    </div>
+                    <div class="p-3 bg-green-100 rounded-full">
+                        <i class="fas fa-user-plus text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Đặt lịch -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Lịch hẹn</p>
+                        <h3 class="text-2xl font-bold">156</h3>
+                        <p class="text-green-600 text-sm">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            15% so với tháng trước
+                        </p>
+                    </div>
+                    <div class="p-3 bg-purple-100 rounded-full">
+                        <i class="fas fa-calendar-check text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Đánh giá -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Đánh giá trung bình</p>
+                        <h3 class="text-2xl font-bold">4.8</h3>
+                        <p class="text-yellow-600 text-sm">
+                            <i class="fas fa-star mr-1"></i>
+                            98 đánh giá mới
+                        </p>
+                    </div>
+                    <div class="p-3 bg-yellow-100 rounded-full">
+                        <i class="fas fa-star text-yellow-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <!-- Revenue Chart -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold mb-4">Doanh thu theo thời gian</h3>
+                <canvas id="revenueChart" height="300"></canvas>
+            </div>
+
+            <!-- Services Chart -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold mb-4">Dịch vụ phổ biến</h3>
+                <canvas id="servicesChart" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- Detailed Reports -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Top Customers -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="p-6 border-b">
+                    <h3 class="text-lg font-semibold">Khách hàng hàng đầu</h3>
+                </div>
+                <div class="p-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <span class="text-blue-600 font-medium">NT</span>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium">Nguyễn Thị Thanh</h4>
+                                    <p class="text-sm text-gray-500">12 lần sử dụng dịch vụ</p>
+                                </div>
+                            </div>
+                            <span class="text-lg font-semibold">8.5M</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                    <span class="text-green-600 font-medium">TH</span>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium">Trần Hoàng</h4>
+                                    <p class="text-sm text-gray-500">10 lần sử dụng dịch vụ</p>
+                                </div>
+                            </div>
+                            <span class="text-lg font-semibold">7.2M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Performance -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="p-6 border-b">
+                    <h3 class="text-lg font-semibold">Hiệu suất nhân viên</h3>
+                </div>
+                <div class="p-6">
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <div class="flex items-center">
+                                    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="Nhân viên" class="w-8 h-8 rounded-full">
+                                    <span class="ml-2">Nguyễn Thị A</span>
+                                </div>
+                                <span class="text-sm font-medium">98%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <div class="flex items-center">
+                                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Nhân viên" class="w-8 h-8 rounded-full">
+                                    <span class="ml-2">Trần Thị B</span>
+                                </div>
+                                <span class="text-sm font-medium">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+                datasets: [{
+                    label: 'Doanh thu (triệu đồng)',
+                    data: [30, 35, 25, 45, 40, 50, 45, 40, 35, 45, 40, 45.5],
+                    borderColor: 'rgb(59, 130, 246)',
+                    tension: 0.4,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Services Chart
+        const servicesCtx = document.getElementById('servicesChart').getContext('2d');
+        new Chart(servicesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Massage', 'Chăm sóc da', 'Tắm trắng', 'Combo'],
+                datasets: [{
+                    data: [40, 30, 20, 10],
+                    backgroundColor: [
+                        'rgb(59, 130, 246)',
+                        'rgb(16, 185, 129)',
+                        'rgb(245, 158, 11)',
+                        'rgb(139, 92, 246)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
